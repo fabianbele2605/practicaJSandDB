@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="./css/estilo.css">
+</head>
+<body>
+    <main>
+        <form id="registerForm">
+            <label for="username">Usuario:</label>
+            <input type="text" name="username" id="username" required>
+            <label for="password">Contraseña:</label>
+            <input type="password" name="password" id="password" required>
+            <button type="submit">Registrarse</button>
+        </form>
+        <p>¿Ya tienes una cuenta? <a href="index.html">Inicia sesión</a></p>
+    </main>
+    <script type="module">
+        document.getElementById("registerForm").addEventListener("submit", async (event) => {
+            event.preventDefault();
+
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+            console.log('Datos enviados para registro:', { username, password });
+
+            try {
+                const response = await fetch('http://localhost:3000/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ username, password })
+                });
+
+                const result = await response.json();
+                console.log('Respuesta del servidor:', result);
+
+                if (result.success) {
+                    alert('Usuario registrado correctamente. Por favor, inicia sesión.');
+                    window.location.href = 'index.html';
+                } else {
+                    alert(result.message || 'Error al registrar usuario.');
+                }
+            } catch (err) {
+                console.error('Error al intentar registrar:', err);
+                alert('Error al conectar con el servidor');
+            }
+        });
+    </script>
+</body>
+</html>

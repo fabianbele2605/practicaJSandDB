@@ -1,0 +1,173 @@
+/* Importar fuente moderna de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+main {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    text-align: left;
+}
+
+input[type="text"],
+input[type="password"] {
+    padding: 0.8rem;
+    font-size: 1rem;
+ Old: System: ¡Genial! Gracias por compartir los detalles. Basándome en la información proporcionada y en el problema descrito ("Contraseña incorrecta" con un error 401), parece que ya resolvimos el problema principal, pero ahora quieres agregar estilos modernos al formulario de registro (`register.html`). He creado un archivo CSS con estilos modernos que se pueden aplicar tanto a `register.html` como a `index.html` para mantener un diseño consistente. A continuación, te explico cómo usar los estilos y te proporciono el código CSS.
+
+---
+
+### Explicación del problema resuelto
+En nuestra conversación anterior, el error "Contraseña incorrecta" (HTTP 401) en la ruta `/login` se debía probablemente a una de las siguientes causas:
+1. La contraseña enviada desde el frontend no coincidía exactamente con la registrada (por ejemplo, espacios, mayúsculas/minúsculas, o errores tipográficos).
+2. Un hash inválido en la base de datos, posiblemente por un error en la ruta `/register`.
+3. Problemas con la base de datos, como una tabla mal configurada o una conexión fallida.
+
+Agregamos logs de depuración en el backend (`server.js`) para rastrear los datos recibidos, los resultados de la consulta SQL y la comparación de contraseñas con `bcrypt`. También modificamos el frontend (`script.js`) para limpiar las entradas con `.trim()` y agregar logs. Estos cambios, junto con la verificación de la base de datos, permitieron identificar y solucionar el problema, como confirmaste con "ya me funcionó".
+
+Ahora, para mejorar la experiencia visual de tu aplicación, he creado un archivo CSS con estilos modernos para `register.html` (y reutilizable para `index.html`). Los estilos son responsivos, con un diseño limpio, gradientes, transiciones suaves y una tipografía moderna.
+
+---
+
+### Estilos CSS modernos
+A continuación, te proporciono el archivo `styles.css` con estilos modernos, envuelto en una etiqueta `<xaiArtifact>` según las instrucciones. Los estilos incluyen:
+- **Fuente**: Poppins (de Google Fonts) para un look profesional.
+- **Fondo**: Gradiente suave para un aspecto moderno.
+- **Formulario**: Contenedor centrado con sombra, bordes redondeados y animaciones.
+- **Botones e inputs**: Efectos hover con transiciones suaves.
+- **Responsividad**: Adaptable a dispositivos móviles y pantallas grandes.
+
+<xaiArtifact artifact_id="f84ce076-4c15-46d4-816c-8cb33b4a2064" artifact_version_id="bc3b3973-4b69-4c34-8be5-ba6bccb413da" title="styles.css" contentType="text/css">
+/* Importar fuente moderna de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+main {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    text-align: left;
+}
+
+input[type="text"],
+input[type="password"] {
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: #6c63ff;
+    box-shadow: 0 0 5px rgba(108, 99, 255, 0.3);
+}
+
+button {
+    padding: 0.8rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, #6c63ff 0%, #a855f7 100%);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(108, 99, 255, 0.3);
+}
+
+p {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+p a {
+    color: #6c63ff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 480px) {
+    main {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    button {
+        font-size: 0.9rem;
+    }
+}
